@@ -3,14 +3,14 @@ package com.didiglobal.turbo.engine.dao;
 import com.didiglobal.turbo.engine.entity.InstanceDataPO;
 import com.didiglobal.turbo.engine.runner.BaseTest;
 import com.didiglobal.turbo.engine.util.EntityBuilder;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class InstanceDataDAOTest extends BaseTest {
 
-    @Resource
+    @Autowired
     private InstanceDataDAO instanceDataDAO;
 
     @Test
@@ -18,7 +18,7 @@ public class InstanceDataDAOTest extends BaseTest {
         InstanceDataPO instanceDataPO = EntityBuilder.buildDynamicInstanceDataPO();
         int result = instanceDataDAO.insert(instanceDataPO);
         LOGGER.info("insertTest.result={}", result);
-        Assert.assertTrue(result == 1);
+        Assertions.assertTrue(result == 1);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class InstanceDataDAOTest extends BaseTest {
         // test DuplicateKeyException
         int result = instanceDataDAO.insert(instanceDataPO);
         LOGGER.info("insertTest.result={}", result);
-        Assert.assertTrue(result == -1);
+        Assertions.assertTrue(result == -1);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class InstanceDataDAOTest extends BaseTest {
         InstanceDataPO instanceDataPO = EntityBuilder.buildDynamicInstanceDataPO();
         instanceDataDAO.insert(instanceDataPO);
         InstanceDataPO result = instanceDataDAO.select(instanceDataPO.getFlowInstanceId(), instanceDataPO.getInstanceDataId());
-        Assert.assertTrue(result.getInstanceDataId().equals(instanceDataPO.getInstanceDataId()));
+        Assertions.assertTrue(result.getInstanceDataId().equals(instanceDataPO.getInstanceDataId()));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class InstanceDataDAOTest extends BaseTest {
         InstanceDataPO newInstanceDataPO = EntityBuilder.buildDynamicInstanceDataPO();
         instanceDataDAO.insert(newInstanceDataPO);
         InstanceDataPO result = instanceDataDAO.selectRecentOne(oldInstanceDataPO.getFlowInstanceId());
-        Assert.assertTrue(result.getInstanceDataId().equals(newInstanceDataPO.getInstanceDataId()));
+        Assertions.assertTrue(result.getInstanceDataId().equals(newInstanceDataPO.getInstanceDataId()));
     }
 }

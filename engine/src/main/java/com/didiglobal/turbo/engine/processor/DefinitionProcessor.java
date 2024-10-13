@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Date;
 
 @Component
@@ -37,13 +37,13 @@ public class DefinitionProcessor {
 
     private static final IdGenerator idGenerator = new StrongUuidGenerator();
 
-    @Resource
+    @Autowired
     private ModelValidator modelValidator;
 
-    @Resource
+    @Autowired
     private FlowDefinitionDAO flowDefinitionDAO;
 
-    @Resource
+    @Autowired
     private FlowDeploymentDAO flowDeploymentDAO;
 
     public CreateFlowResult create(CreateFlowParam createFlowParam) {

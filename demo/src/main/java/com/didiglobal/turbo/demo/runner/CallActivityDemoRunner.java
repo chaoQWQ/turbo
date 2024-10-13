@@ -23,7 +23,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class CallActivityDemoRunner implements CommandLineRunner {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CallActivityDemoRunner.class);
 
-    @Resource
+    @Autowired
     private ProcessEngine processEngine;
 
     private static final String tenant = "testTenant";
@@ -134,7 +134,7 @@ public class CallActivityDemoRunner implements CommandLineRunner {
         // Now it is stuck in the second user node of the parent process, 'Generate Work Order', driving the completion of the parent process
         commitTaskResult = commitMainFlowUserTask2(commitTaskResult);
 
-        assert commitTaskResult.getStatus() == ErrorEnum.SUCCESS.getErrNo();
+        assert commitTaskResult.getErrCode() == ErrorEnum.SUCCESS.getErrNo();
     }
 
     private StartProcessResult startProcessToCallActivity() {

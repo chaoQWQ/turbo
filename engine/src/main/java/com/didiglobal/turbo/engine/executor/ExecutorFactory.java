@@ -9,9 +9,10 @@ import com.didiglobal.turbo.engine.model.FlowElement;
 import com.didiglobal.turbo.engine.util.FlowModelUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.MessageFormat;
 import java.util.Map;
@@ -21,22 +22,22 @@ public class ExecutorFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExecutorFactory.class);
 
-    @Resource
+    @Autowired
     private StartEventExecutor startEventExecutor;
 
-    @Resource
+    @Autowired
     private EndEventExecutor endEventExecutor;
 
-    @Resource
+    @Autowired
     private SequenceFlowExecutor sequenceFlowExecutor;
 
-    @Resource
+    @Autowired
     private UserTaskExecutor userTaskExecutor;
 
-    @Resource
+    @Autowired
     private ExclusiveGatewayExecutor exclusiveGatewayExecutor;
 
-    @Resource
+    @Autowired
     private SyncSingleCallActivityExecutor syncSingleCallActivityExecutor;
 
     public ElementExecutor getElementExecutor(FlowElement flowElement) throws ProcessException {

@@ -5,22 +5,22 @@ import com.didiglobal.turbo.engine.entity.FlowInstancePO;
 import com.didiglobal.turbo.engine.runner.BaseTest;
 import com.didiglobal.turbo.engine.util.EntityBuilder;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Date;
 
 public class ProcessInstanceMapperTest extends BaseTest {
 
-    @Resource
+    @Autowired
     private ProcessInstanceMapper processInstanceMapper;
 
     @Test
     public void insert() {
         FlowInstancePO flowInstancePO = EntityBuilder.buildDynamicFlowInstancePO();
         int result = processInstanceMapper.insert(flowInstancePO);
-        Assert.assertTrue(result == 1);
+        Assertions.assertTrue(result == 1);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ProcessInstanceMapperTest extends BaseTest {
         processInstanceMapper.insert(flowInstancePO);
         String flowInstanceId = flowInstancePO.getFlowInstanceId();
         flowInstancePO = processInstanceMapper.selectByFlowInstanceId(flowInstancePO.getFlowInstanceId());
-        Assert.assertTrue(StringUtils.equals(flowInstancePO.getFlowInstanceId(), flowInstanceId));
+        Assertions.assertTrue(StringUtils.equals(flowInstancePO.getFlowInstanceId(), flowInstanceId));
     }
 
     @Test

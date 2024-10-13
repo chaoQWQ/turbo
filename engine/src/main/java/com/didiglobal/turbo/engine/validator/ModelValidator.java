@@ -12,14 +12,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class ModelValidator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ModelValidator.class);
 
-    @Resource
+    @Autowired
     private FlowModelValidator flowModelValidator;
 
     public void validate(String flowModelStr) throws DefinitionException, ProcessException {

@@ -58,7 +58,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,28 +71,28 @@ public class RuntimeProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RuntimeProcessor.class);
 
-    @Resource
+    @Autowired
     private FlowDeploymentDAO flowDeploymentDAO;
 
-    @Resource
+    @Autowired
     private ProcessInstanceDAO processInstanceDAO;
 
-    @Resource
+    @Autowired
     private NodeInstanceDAO nodeInstanceDAO;
 
-    @Resource
+    @Autowired
     private FlowInstanceMappingDAO flowInstanceMappingDAO;
 
-    @Resource
+    @Autowired
     private FlowExecutor flowExecutor;
 
-    @Resource
+    @Autowired
     private FlowInstanceService flowInstanceService;
 
-    @Resource
+    @Autowired
     private InstanceDataService instanceDataService;
 
-    @Resource
+    @Autowired
     private NodeInstanceService nodeInstanceService;
 
     ////////////////////////////////////////startProcess////////////////////////////////////////

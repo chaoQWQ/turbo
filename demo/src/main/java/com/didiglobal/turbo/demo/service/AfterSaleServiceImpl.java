@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class AfterSaleServiceImpl {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AfterSaleServiceImpl.class);
 
-    @Resource
+    @Autowired
     private ProcessEngine processEngine;
 
     private CreateFlowParam createFlowParam;

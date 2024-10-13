@@ -13,29 +13,31 @@ import com.didiglobal.turbo.engine.util.StrongUuidGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 public abstract class RuntimeExecutor {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(RuntimeExecutor.class);
 
-    @Resource
+    @Autowired
+    @Lazy
     protected ExecutorFactory executorFactory;
 
-    @Resource
+    @Autowired
     protected InstanceDataDAO instanceDataDAO;
 
-    @Resource
+    @Autowired
     protected NodeInstanceDAO nodeInstanceDAO;
 
-    @Resource
+    @Autowired
     protected ProcessInstanceDAO processInstanceDAO;
 
-    @Resource
+    @Autowired
     protected NodeInstanceLogDAO nodeInstanceLogDAO;
 
     private static final IdGenerator ID_GENERATOR = new StrongUuidGenerator();
-    @Resource
+    @Autowired
     protected FlowInstanceMappingDAO flowInstanceMappingDAO;
 
     private static final IdGenerator idGenerator = new StrongUuidGenerator();

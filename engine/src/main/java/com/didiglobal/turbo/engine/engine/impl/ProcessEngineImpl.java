@@ -7,15 +7,15 @@ import com.didiglobal.turbo.engine.processor.RuntimeProcessor;
 import com.didiglobal.turbo.engine.result.*;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class ProcessEngineImpl implements ProcessEngine {
 
-    @Resource
+    @Autowired
     private DefinitionProcessor definitionProcessor;
 
-    @Resource
+    @Autowired
     private RuntimeProcessor runtimeProcessor;
 
     @Override

@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.text.MessageFormat;
 
 @Component
@@ -18,22 +18,22 @@ public class ElementValidatorFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ElementValidatorFactory.class);
 
-    @Resource
+    @Autowired
     private StartEventValidator startEventValidator;
 
-    @Resource
+    @Autowired
     private EndEventValidator endEventValidator;
 
-    @Resource
+    @Autowired
     private SequenceFlowValidator sequenceFlowValidator;
 
-    @Resource
+    @Autowired
     private UserTaskValidator userTaskValidator;
 
-    @Resource
+    @Autowired
     private ExclusiveGatewayValidator exclusiveGatewayValidator;
 
-    @Resource
+    @Autowired
     private CallActivityValidator callActivityValidator;
 
     public ElementValidator getElementValidator(FlowElement flowElement) throws ProcessException {

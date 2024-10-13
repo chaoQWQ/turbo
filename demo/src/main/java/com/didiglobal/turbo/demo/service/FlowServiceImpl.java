@@ -26,7 +26,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,13 +39,13 @@ import java.util.List;
 @Service
 public class FlowServiceImpl {
 
-    @Resource
+    @Autowired
     private ProcessEngine processEngine;
 
-    @Resource
+    @Autowired
     private FlowDefinitionDAO flowDefinitionDAO;
 
-    @Resource
+    @Autowired
     private FlowDeploymentDAO flowDeploymentDAO;
 
     /**

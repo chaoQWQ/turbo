@@ -9,16 +9,16 @@ import com.didiglobal.turbo.engine.model.SequenceFlow;
 import com.didiglobal.turbo.engine.model.StartEvent;
 import com.didiglobal.turbo.engine.runner.BaseTest;
 import com.didiglobal.turbo.engine.util.EntityBuilder;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FlowModelValidatorTest extends BaseTest {
 
-    @Resource
+    @Autowired
     FlowModelValidator flowModelValidator;
 
     /**
@@ -34,15 +34,15 @@ public class FlowModelValidatorTest extends BaseTest {
         try {
             flowModelValidator.validate(flowModel);
             access = true;
-            Assert.assertTrue(access);
+            Assertions.assertTrue(access);
         } catch (ProcessException e) {
             LOGGER.error("", e);
             access = true;
-            Assert.assertTrue(access);
+            Assertions.assertTrue(access);
         } catch (DefinitionException e) {
             LOGGER.error("", e);
             access = true;
-            Assert.assertTrue(access);
+            Assertions.assertTrue(access);
         }
 
     }
@@ -70,13 +70,13 @@ public class FlowModelValidatorTest extends BaseTest {
         try {
             flowModelValidator.validate(flowModel);
             access = true;
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         } catch (ProcessException e) {
             LOGGER.error("", e);
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         } catch (DefinitionException e) {
             LOGGER.error("", e);
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         }
     }
 
@@ -101,13 +101,13 @@ public class FlowModelValidatorTest extends BaseTest {
         try {
             flowModelValidator.validate(flowModel);
             access = true;
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         } catch (ProcessException e) {
             LOGGER.error("", e);
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         } catch (DefinitionException e) {
             LOGGER.error("", e);
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         }
     }
 
@@ -127,13 +127,13 @@ public class FlowModelValidatorTest extends BaseTest {
         try {
             flowModelValidator.validate(flowModel);
             access = true;
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         } catch (ProcessException e) {
             LOGGER.error("", e);
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         } catch (DefinitionException e) {
             LOGGER.error("", e);
-            Assert.assertFalse(access);
+            Assertions.assertFalse(access);
         }
     }
 }

@@ -3,8 +3,8 @@ package com.didiglobal.turbo.engine.dao.mapper;
 import com.didiglobal.turbo.engine.entity.FlowDefinitionPO;
 import com.didiglobal.turbo.engine.runner.BaseTest;
 import com.didiglobal.turbo.engine.util.EntityBuilder;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class FlowDefinitionMapperTest extends BaseTest {
@@ -17,7 +17,7 @@ public class FlowDefinitionMapperTest extends BaseTest {
         FlowDefinitionPO flowDefinitionPO = EntityBuilder.buildFlowDefinitionPO();
         flowDefinitionPO.setFlowModuleId("testFlowModuleId_" + System.currentTimeMillis());
         int result = flowDefinitionMapper.insert(flowDefinitionPO);
-        Assert.assertTrue(result == 1);
+        Assertions.assertTrue(result == 1);
     }
 
     @Test
@@ -28,9 +28,9 @@ public class FlowDefinitionMapperTest extends BaseTest {
         flowDefinitionPO = flowDefinitionMapper.selectByFlowModuleId(flowDefinitionPO.getFlowModuleId());
         flowDefinitionPO.setStatus(3);
         int result = flowDefinitionMapper.updateById(flowDefinitionPO);
-        Assert.assertTrue(result == 1);
+        Assertions.assertTrue(result == 1);
         flowDefinitionPO = flowDefinitionMapper.selectByFlowModuleId(flowDefinitionPO.getFlowModuleId());
-        Assert.assertTrue(flowDefinitionPO.getStatus().equals(3));
+        Assertions.assertTrue(flowDefinitionPO.getStatus().equals(3));
     }
 
     @Test
@@ -38,11 +38,11 @@ public class FlowDefinitionMapperTest extends BaseTest {
         FlowDefinitionPO flowDefinitionPO = EntityBuilder.buildFlowDefinitionPO();
         flowDefinitionPO.setFlowModuleId("testFlowModuleId_" + System.currentTimeMillis());
         int result = flowDefinitionMapper.insert(flowDefinitionPO);
-        Assert.assertTrue(result == 1);
+        Assertions.assertTrue(result == 1);
         String flowModuleId = flowDefinitionPO.getFlowModuleId();
         FlowDefinitionPO queryFlowDefinitionPO = flowDefinitionMapper.selectByFlowModuleId(flowModuleId);
         LOGGER.info("selectByModuleIdTest.||flowDefinitionPO={}", flowDefinitionPO);
-        Assert.assertTrue(flowModuleId.equals(queryFlowDefinitionPO.getFlowModuleId()));
+        Assertions.assertTrue(flowModuleId.equals(queryFlowDefinitionPO.getFlowModuleId()));
 
     }
 }

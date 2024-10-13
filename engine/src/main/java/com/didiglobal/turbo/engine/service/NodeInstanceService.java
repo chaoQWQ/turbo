@@ -11,7 +11,7 @@ import com.didiglobal.turbo.engine.model.FlowElement;
 import com.didiglobal.turbo.engine.util.FlowModelUtil;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
@@ -19,16 +19,16 @@ import java.util.Map;
 @Service
 public class NodeInstanceService {
 
-    @Resource
+    @Autowired
     private NodeInstanceDAO nodeInstanceDAO;
 
-    @Resource
+    @Autowired
     private ProcessInstanceDAO processInstanceDAO;
 
-    @Resource
+    @Autowired
     private FlowDeploymentDAO flowDeploymentDAO;
 
-    @Resource
+    @Autowired
     private FlowInstanceService flowInstanceService;
 
     public NodeInstancePO selectByNodeInstanceId(String flowInstanceId, String nodeInstanceId, boolean effectiveForSubFlowInstance) {

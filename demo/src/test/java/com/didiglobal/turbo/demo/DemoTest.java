@@ -2,23 +2,21 @@ package com.didiglobal.turbo.demo;
 
 import com.didiglobal.turbo.demo.service.AfterSaleServiceImpl;
 import com.didiglobal.turbo.demo.service.LeaveServiceImpl;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author rick
  * @Date 2022/4/11 12:53
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class DemoTest {
-    @Resource
+    @Autowired
     private AfterSaleServiceImpl afterSaleService;
-    @Resource
+    @Autowired
     private LeaveServiceImpl leaveService;
 
     @Test

@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +35,7 @@ public class FlowExecutor extends RuntimeExecutor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FlowExecutor.class);
 
-    @Resource
+    @Autowired
     private ProcessInstanceDAO processInstanceDAO;
 
     ////////////////////////////////////////execute////////////////////////////////////////

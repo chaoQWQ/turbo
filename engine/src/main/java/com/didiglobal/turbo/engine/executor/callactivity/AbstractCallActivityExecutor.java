@@ -20,7 +20,7 @@ import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,16 +33,16 @@ import java.util.Map;
  */
 public abstract class AbstractCallActivityExecutor extends ElementExecutor {
 
-    @Resource
+    @Autowired
     protected RuntimeProcessor runtimeProcessor;
 
-    @Resource
+    @Autowired
     protected FlowDeploymentDAO flowDeploymentDAO;
 
-    @Resource
+    @Autowired
     protected NodeInstanceService nodeInstanceService;
 
-    @Resource
+    @Autowired
     protected BusinessConfig businessConfig;
 
     protected List<InstanceData> getCallActivityVariables(RuntimeContext runtimeContext) throws ProcessException {

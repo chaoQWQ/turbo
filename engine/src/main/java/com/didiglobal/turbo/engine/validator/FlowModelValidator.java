@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +25,7 @@ public class FlowModelValidator {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(FlowModelValidator.class);
 
-    @Resource
+    @Autowired
     private ElementValidatorFactory elementValidatorFactory;
 
     public void validate(FlowModel flowModel) throws ProcessException, DefinitionException {

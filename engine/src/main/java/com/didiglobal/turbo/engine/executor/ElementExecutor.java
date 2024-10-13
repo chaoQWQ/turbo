@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +28,7 @@ public abstract class ElementExecutor extends RuntimeExecutor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ElementExecutor.class);
 
-    @Resource
+    @Autowired
     protected ExpressionCalculator expressionCalculator;
 
     @Override

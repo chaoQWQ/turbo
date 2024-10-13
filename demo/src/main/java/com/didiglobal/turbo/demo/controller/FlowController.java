@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -30,7 +30,7 @@ import javax.annotation.Resource;
 public class FlowController {
     private static final Logger LOGGER = LoggerFactory.getLogger(FlowController.class);
 
-    @Resource
+    @Autowired
     private FlowServiceImpl logicFlowService;
     /**
      * 创建流程

@@ -4,10 +4,10 @@ import com.didiglobal.turbo.engine.common.NodeInstanceStatus;
 import com.didiglobal.turbo.engine.entity.NodeInstancePO;
 import com.didiglobal.turbo.engine.runner.BaseTest;
 import com.didiglobal.turbo.engine.util.EntityBuilder;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,14 +15,14 @@ import java.util.UUID;
 
 public class NodeInstanceMapperTest extends BaseTest {
 
-    @Resource
+    @Autowired
     private NodeInstanceMapper nodeInstanceMapper;
 
     @Test
     public void insert() {
         NodeInstancePO nodeInstancePO = EntityBuilder.buildDynamicNodeInstancePO();
         int result = nodeInstanceMapper.insert(nodeInstancePO);
-        Assert.assertTrue(result == 1);
+        Assertions.assertTrue(result == 1);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class NodeInstanceMapperTest extends BaseTest {
         NodeInstancePO nodeInstancePO = EntityBuilder.buildDynamicNodeInstancePO();
         nodeInstanceMapper.insert(nodeInstancePO);
         NodeInstancePO result = nodeInstanceMapper.selectByNodeInstanceId(nodeInstancePO.getFlowInstanceId(), nodeInstancePO.getNodeInstanceId());
-        Assert.assertTrue(result.getNodeInstanceId().equals(nodeInstancePO.getNodeInstanceId()));
+        Assertions.assertTrue(result.getNodeInstanceId().equals(nodeInstancePO.getNodeInstanceId()));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class NodeInstanceMapperTest extends BaseTest {
         NodeInstancePO newNodeInstancePO = EntityBuilder.buildDynamicNodeInstancePO();
         nodeInstanceMapper.insert(newNodeInstancePO);
         NodeInstancePO result = nodeInstanceMapper.selectRecentOne(oldNodeInstancePO.getFlowInstanceId());
-        Assert.assertTrue(result.getNodeInstanceId().equals(newNodeInstancePO.getNodeInstanceId()));
+        Assertions.assertTrue(result.getNodeInstanceId().equals(newNodeInstancePO.getNodeInstanceId()));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class NodeInstanceMapperTest extends BaseTest {
         NodeInstancePO newNodeInstancePO = EntityBuilder.buildDynamicNodeInstancePO();
         nodeInstanceMapper.insert(newNodeInstancePO);
         NodeInstancePO result = nodeInstanceMapper.selectRecentOneByStatus(oldNodeInstancePO.getFlowInstanceId(), NodeInstanceStatus.ACTIVE);
-        Assert.assertTrue(result.getNodeInstanceId().equals(newNodeInstancePO.getNodeInstanceId()));
+        Assertions.assertTrue(result.getNodeInstanceId().equals(newNodeInstancePO.getNodeInstanceId()));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class NodeInstanceMapperTest extends BaseTest {
         nodeInstanceMapper.insert(nodeInstancePO);
         NodeInstancePO result = nodeInstanceMapper.selectBySourceInstanceId(nodeInstancePO.getFlowInstanceId(),
                 nodeInstancePO.getSourceNodeInstanceId(), nodeInstancePO.getNodeKey());
-        Assert.assertTrue(result.getNodeInstanceId().equals(nodeInstancePO.getNodeInstanceId()));
+        Assertions.assertTrue(result.getNodeInstanceId().equals(nodeInstancePO.getNodeInstanceId()));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class NodeInstanceMapperTest extends BaseTest {
         nodeInstancePO.setModifyTime(new Date());
         nodeInstanceMapper.updateStatus(nodeInstancePO);
         NodeInstancePO result = nodeInstanceMapper.selectByNodeInstanceId(nodeInstancePO.getFlowInstanceId(), nodeInstancePO.getNodeInstanceId());
-        Assert.assertTrue(result.getStatus() == NodeInstanceStatus.COMPLETED);
+        Assertions.assertTrue(result.getStatus() == NodeInstanceStatus.COMPLETED);
     }
 
     @Test
@@ -87,6 +87,6 @@ public class NodeInstanceMapperTest extends BaseTest {
         nodeInstancePOList.add(nodeInstancePO2);
         nodeInstanceMapper.batchInsert(firstNodeInstancePO.getFlowInstanceId(), nodeInstancePOList);
         List<NodeInstancePO> result = nodeInstanceMapper.selectByFlowInstanceId(firstNodeInstancePO.getFlowInstanceId());
-        Assert.assertTrue(result.size() == 3);
+        Assertions.assertTrue(result.size() == 3);
     }
 }

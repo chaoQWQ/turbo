@@ -22,7 +22,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,7 +34,7 @@ public class ExclusiveGatewayExecutor extends ElementExecutor implements Initial
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExclusiveGatewayExecutor.class);
 
-    @Resource
+    @Autowired
     private ApplicationContext applicationContext;
 
     private List<HookService> hookServices;

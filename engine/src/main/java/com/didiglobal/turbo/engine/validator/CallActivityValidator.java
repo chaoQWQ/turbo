@@ -27,7 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,10 +39,10 @@ import java.util.TreeSet;
 @Service
 public class CallActivityValidator extends ElementValidator {
 
-    @Resource
+    @Autowired
     private BusinessConfig businessConfig;
 
-    @Resource
+    @Autowired
     private FlowDefinitionDAO flowDefinitionDAO;
 
     @Override

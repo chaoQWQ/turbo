@@ -9,24 +9,23 @@ import com.didiglobal.turbo.engine.runner.BaseTest;
 import com.didiglobal.turbo.engine.util.EntityBuilder;
 import com.didiglobal.turbo.engine.util.FlowModelUtil;
 import com.google.common.collect.Maps;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
-import javax.annotation.Resource;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Map;
 
 public class ExclusiveGatewayExecutorTest extends BaseTest {
 
-    @Resource
+    @Autowired
     private ExecutorFactory executorFactory;
 
     private ExclusiveGatewayExecutor exclusiveGatewayExecutor;
 
     private RuntimeContext runtimeContext;
 
-    @Before
     public void initExclusiveGatewayExecutor() {
         List<FlowElement> flowElementList = EntityBuilder.buildFlowElementList();
 
@@ -67,7 +66,7 @@ public class ExclusiveGatewayExecutorTest extends BaseTest {
         try {
             exclusiveGatewayExecutor.getExecuteExecutor(runtimeContext);
             String modelKey = runtimeContext.getCurrentNodeModel().getKey();
-            Assert.assertTrue("userTask2".equals(modelKey));
+            Assertions.assertTrue("userTask2".equals(modelKey));
         } catch (Exception e) {
             LOGGER.error("", e);
         }

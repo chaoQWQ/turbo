@@ -15,7 +15,7 @@
     </parent>
     <properties>
         <groovy.version>2.3.7</groovy.version>
-        <spring-boot-starter.version>1.5.10.RELEASE</spring-boot-starter.version>
+        <spring-boot-starter.version>2.7.10</spring-boot-starter.version>
     </properties>
 
     <dependencies>
